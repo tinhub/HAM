@@ -8,7 +8,7 @@
     tools:context=".MainActivity"
     android:background="@drawable/background"
     android:fitsSystemWindows="true"
-    tools:openDrawer="end">
+    tools:openDrawer="start">
 
 
 
@@ -21,6 +21,7 @@
         app:menu="@menu/main_menu"
         android:layout_gravity="start"/>
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -35,36 +36,31 @@
             android:id="@+id/search"
             android:layout_width="410dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             android:drawableLeft="@drawable/search_icon"
             android:ems="10"
             android:fontFamily="serif-monospace"
             android:hint="Search....."
             android:inputType="textPersonName"
             android:singleLine="true"
-            app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
+            app:layout_constraintBottom_toTopOf="@+id/recyclerView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.079"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tool_bar" />
 
-        <HorizontalScrollView
-            android:id="@+id/horizontalScrollView"
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="227dp"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/search">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"/>
-
-        </HorizontalScrollView>
+            app:layout_constraintTop_toBottomOf="@+id/search" />
 
         <Button
             android:id="@+id/button2"
@@ -100,14 +96,14 @@
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
 
-            android:layout_marginBottom="125dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="280dp"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/button6"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
+            app:layout_constraintTop_toBottomOf="@+id/recyclerView">
 
             <Button
                 android:id="@+id/food_btn"
@@ -134,27 +130,33 @@
                 app:icon="@drawable/snacks_icon" />
         </LinearLayout>
 
+
         <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="683dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/button6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="TODAY'S SPECIAL"
-            app:icon="@drawable/todays_special"
+            android:layout_marginTop="24dp"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/today_special_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/todays_special"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:text="TODAY'S SPECIAL"
+                app:icon="@drawable/todays_special" />
+        </LinearLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,5 +1,6 @@
 package com.martin.hams_cuisine;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,8 +48,16 @@ public class SignupTabFragment extends Fragment {
         confirmpass.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(500).start();
         signupbtn.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(700).start();
 
+        signupbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         return root;
+
     }
 
 

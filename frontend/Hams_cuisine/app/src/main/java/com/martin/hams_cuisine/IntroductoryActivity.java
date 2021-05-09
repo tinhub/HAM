@@ -15,7 +15,7 @@ import pl.droidsonroids.gif.GifImageView;
 
 public class IntroductoryActivity extends AppCompatActivity {
 
-    private static int SPLASH_SCREEN = 6000;
+    private static int SPLASH_SCREEN = 4000;
     ImageView logo,splashImg;
     TextView appName;
     GifImageView gif;
@@ -34,11 +34,11 @@ public class IntroductoryActivity extends AppCompatActivity {
         gif = findViewById(R.id.gif);
         //lottieAnimationView = findViewById(R.id.lottie);
 
-        splashImg.animate().translationY(-3000).setDuration(1000).setStartDelay(5000);
-        logo.animate().translationY(1600).setDuration(1000).setStartDelay(5000);
-        appName.animate().translationY(1400).setDuration(1000).setStartDelay(5000);
+        splashImg.animate().translationY(-2000).setDuration(500).setStartDelay(3000);
+        logo.animate().translationY(1600).setDuration(500).setStartDelay(3000);
+        appName.animate().translationY(1400).setDuration(500).setStartDelay(3000);
        // lottieAnimationView.animate().translationY(1400).setDuration(1000).setStartDelay(4000);
-        gif.animate().translationY(1400).setDuration(1000).setStartDelay(5000);
+        gif.animate().translationY(1400).setDuration(300).setStartDelay(3000);
 
         new Handler().postDelayed(new Runnable() {
             @Override

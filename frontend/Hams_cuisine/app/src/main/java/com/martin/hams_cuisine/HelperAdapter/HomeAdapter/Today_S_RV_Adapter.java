@@ -1,7 +1,5 @@
 package com.martin.hams_cuisine.HelperAdapter.HomeAdapter;
 
-import android.content.Context;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,18 +13,18 @@ import com.martin.hams_cuisine.R;
 
 import java.util.ArrayList;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.RecyclerViewHolder> {
+public class Today_S_RV_Adapter extends RecyclerView.Adapter<Today_S_RV_Adapter.RecyclerViewHolder> {
 
-    ArrayList<RecyclerViewHelper> recyclerLocations;
+    ArrayList<RecyclerViewHelper2> recyclerLocations2;
 
-    public RecyclerViewAdapter(ArrayList<RecyclerViewHelper> recyclerLocations) {
-        this.recyclerLocations = recyclerLocations;
+    public Today_S_RV_Adapter(ArrayList<RecyclerViewHelper2> recyclerLocations2) {
+        this.recyclerLocations2 = recyclerLocations2;
     }
 
     @NonNull
     @Override
     public RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_card_design,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.todays_special,parent,false);
         RecyclerViewHolder recyclerViewHolder = new RecyclerViewHolder(view);
         return recyclerViewHolder;
     }
@@ -34,17 +32,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
 
-        RecyclerViewHelper recyclerViewHelper = recyclerLocations.get(position);
+        RecyclerViewHelper2 recyclerViewHelper2 = recyclerLocations2.get(position);
 
-        holder.image.setImageResource(recyclerViewHelper.getImage());
-        holder.title.setText(recyclerViewHelper.getTitle());
-        holder.desc.setText(recyclerViewHelper.getDescription());
+        holder.image.setImageResource(recyclerViewHelper2.getImage());
+        holder.title.setText(recyclerViewHelper2.getTitle());
+        holder.desc.setText(recyclerViewHelper2.getDescription());
 
     }
 
     @Override
     public int getItemCount() {
-        return recyclerLocations.size();
+        return recyclerLocations2.size();
     }
 
 

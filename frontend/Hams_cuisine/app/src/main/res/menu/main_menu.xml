@@ -6,7 +6,7 @@
             android:title="Home"
             android:icon="@drawable/menu_icon"/>
         <item
-            android:id="@+id/nav_orders"
+            android:id="@+id/nav_checkout_orders"
             android:title="Orders"
             android:icon="@drawable/check_orders"/>
         <item
@@ -20,13 +20,22 @@
             <menu>
                 <group android:checkableBehavior="single">
                 <item
+                    android:id="@+id/nav_profile"
                     android:title="Profile"
                     android:icon="@drawable/menu_icon"/>
                 <item
                     android:id="@+id/nav_login"
                     android:title="Login"
                     android:icon="@drawable/ic_baseline_login_24"/>
-                <item
+                    <item
+                        android:id="@+id/nav_logout"
+                        android:title="Log out"
+                        android:icon="@drawable/logout_icon"/>
+                    <item
+                        android:id="@+id/nav_signup"
+                        android:title="Sign up"
+                        android:icon="@drawable/ic_baseline_login_24"/>
+                    <item
                     android:id="@+id/nav_about"
                     android:title="About"
                     android:icon="@drawable/about_icon"/>
