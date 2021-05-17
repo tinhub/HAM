@@ -8,7 +8,7 @@
     tools:context=".MainActivity"
     android:background="@drawable/background"
     android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    tools:openDrawer="END">
 
 
 
@@ -60,7 +60,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/search" />
+            app:layout_constraintTop_toBottomOf="@+id/search"
+            android:visibility="gone"/>
 
         <Button
             android:id="@+id/button2"

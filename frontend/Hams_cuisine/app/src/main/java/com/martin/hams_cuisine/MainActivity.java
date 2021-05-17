@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.telecom.Call;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
@@ -23,6 +24,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.navigation.NavigationView;
 /*import com.martin.hams_cuisine.model.FoodData;*/
 /*import com.martin.hams_cuisine.retrofit.ApiInterface;*/
+import com.google.gson.Gson;
 import com.martin.hams_cuisine.HelperAdapter.HomeAdapter.RecyclerViewAdapter;
 import com.martin.hams_cuisine.HelperAdapter.HomeAdapter.RecyclerViewHelper;
 import com.martin.hams_cuisine.HelperAdapter.HomeAdapter.RecyclerViewHelper2;
@@ -44,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
     private RecyclerView specialRecycler;
+    ArrayList<RecyclerViewHelper2> recyclerLocations2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,7 +146,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         specialRecycler.setHasFixedSize(true);
         specialRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
-        ArrayList<RecyclerViewHelper2> recyclerLocations2 = new ArrayList<>();
+        recyclerLocations2 = new ArrayList<>();
         recyclerLocations2.add(new RecyclerViewHelper2(R.drawable.breakfast, "Breakfast", "KSH 500 /="));
         recyclerLocations2.add(new RecyclerViewHelper2(R.drawable.chocolate_ice_cream, "Chocolate Ice Cream", "@ KSH 100 /="));
         recyclerLocations2.add(new RecyclerViewHelper2(R.drawable.food_bolognese_sauce_pasta_salad_italian_cuisine_spaghetti, "Italian cuisine spaghetti", "KSH 300 /="));
@@ -153,8 +156,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         recyclerLocations2.add(new RecyclerViewHelper2(R.drawable.food_rye_bread_mantou, "Rye Bread Fry", "@ KSH 50 /="));
         recyclerLocations2.add(new RecyclerViewHelper2(R.drawable.food_bun_hamburger, "Bun Hamburger", "@ KSH 60 /="));
 
-
-        adapter = new Today_S_RV_Adapter(recyclerLocations2);
-        specialRecycler.setAdapter(adapter);
+    if (recyclerLocations2 != null){
+        Log.e("TAG", "SpecialRecycler: "+ new Gson()
+        .toJson(recyclerLocations2
+        ));
+       adapter = new Today_S_RV_Adapter(recyclerLocations2);
+       specialRecycler.setAdapter(adapter);
+    } else {
+        Log.e("TAG", "SpecialRecycler: recycler is null" );
+    }
     }
 }

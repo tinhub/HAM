@@ -1,5 +1,6 @@
 package com.martin.hams_cuisine.HelperAdapter.HomeAdapter;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.Gson;
 import com.martin.hams_cuisine.R;
 
 import java.util.ArrayList;
@@ -33,9 +35,11 @@ public class Today_S_RV_Adapter extends RecyclerView.Adapter<Today_S_RV_Adapter.
     public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
 
         RecyclerViewHelper2 recyclerViewHelper2 = recyclerLocations2.get(position);
-
-        holder.image.setImageResource(recyclerViewHelper2.getImage());
-        holder.title.setText(recyclerViewHelper2.getTitle());
+        Log.e("TAG", "onBindViewHolder: "+ new Gson()
+                .toJson(recyclerViewHelper2
+                ));
+      //  holder.image.setImageResource(recyclerViewHelper2.getImage());
+        holder.title.setText(recyclerViewHelper2.getTitle().toString());
         holder.desc.setText(recyclerViewHelper2.getDescription());
 
     }
